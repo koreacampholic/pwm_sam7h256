@@ -30,3 +30,12 @@ PWM3_init(void)
 
 }
 
+void PWM3_dutyset(unsigned int uiDuty) //듀티비로 LED조절
+ {
+   if(800 < uiDuty)
+   {
+     uiDuty = 800;
+   }
+
+   AT91C_PWMC_CH3_CUPDR = uiDuty;
+ }
