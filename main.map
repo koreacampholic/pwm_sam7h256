@@ -11,7 +11,7 @@ Linker script and memory map
                 0x000000000020fffc                _stack_end = 0x20fffc
                 0x0000000000000000                . = 0x0
 
-.text           0x0000000000200000      0x5ec
+.text           0x0000000000200000      0x67c
  *(.text)
  .text          0x0000000000200000      0x104 crt.o
                 0x0000000000200000                _vec_reset
@@ -23,76 +23,82 @@ Linker script and memory map
                 0x0000000000200018                _vec_irq
                 0x000000000020001c                _vec_fiq
                 0x00000000002000a0                AT91F_Irq_Handler
- .text          0x0000000000200104      0x114 main.o
+ .text          0x0000000000200104       0xa0 main.o
                 0x0000000000200104                main
- .text          0x0000000000200218       0x6c timerisr.o
-                0x0000000000200218                Timer0IrqHandler
- .text          0x0000000000200284       0x88 timersetup.o
-                0x0000000000200284                TimerSetup
- .text          0x000000000020030c      0x1bc isrsupport.o
-                0x0000000000200358                disableIRQ
-                0x0000000000200390                restoreIRQ
-                0x00000000002003d8                enableIRQ
-                0x0000000000200410                disableFIQ
-                0x0000000000200448                restoreFIQ
-                0x0000000000200490                enableFIQ
- .text          0x00000000002004c8      0x124 lowlevelinit.o
-                0x00000000002004c8                AT91F_Default_FIQ_handler
-                0x00000000002004d4                AT91F_Default_IRQ_handler
-                0x00000000002004e0                AT91F_Spurious_handler
-                0x00000000002004ec                LowLevelInit
+ .text          0x00000000002001a4       0x6c timerisr.o
+                0x00000000002001a4                Timer0IrqHandler
+ .text          0x0000000000200210       0x88 timersetup.o
+                0x0000000000200210                TimerSetup
+ .text          0x0000000000200298      0x1bc isrsupport.o
+                0x00000000002002e4                disableIRQ
+                0x000000000020031c                restoreIRQ
+                0x0000000000200364                enableIRQ
+                0x000000000020039c                disableFIQ
+                0x00000000002003d4                restoreFIQ
+                0x000000000020041c                enableFIQ
+ .text          0x0000000000200454      0x124 lowlevelinit.o
+                0x0000000000200454                AT91F_Default_FIQ_handler
+                0x0000000000200460                AT91F_Default_IRQ_handler
+                0x000000000020046c                AT91F_Spurious_handler
+                0x0000000000200478                LowLevelInit
+ .text          0x0000000000200578      0x104 pwm.o
+                0x0000000000200578                PWM3_init
+                0x0000000000200634                PWM3_dutyset
  *(.rodata)
  *(.rodata*)
  *(.glue_7)
  .glue_7        0x0000000000000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x0000000000000000        0x0 linker stubs
-                0x00000000002005ec                _etext = .
+                0x000000000020067c                _etext = .
 
-.vfp11_veneer   0x00000000002005ec        0x0
+.vfp11_veneer   0x000000000020067c        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x00000000002005ec        0x0
+.v4_bx          0x000000000020067c        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x00000000002005ec        0x0
+.iplt           0x000000000020067c        0x0
  .iplt          0x0000000000000000        0x0 crt.o
 
-.rel.dyn        0x00000000002005ec        0x0
+.rel.dyn        0x000000000020067c        0x0
  .rel.iplt      0x0000000000000000        0x0 crt.o
 
-.data           0x00000000002005ec        0x0
-                0x00000000002005ec                _data = .
+.data           0x000000000020067c        0x0
+                0x000000000020067c                _data = .
  *(.data)
- .data          0x00000000002005ec        0x0 crt.o
- .data          0x00000000002005ec        0x0 main.o
- .data          0x00000000002005ec        0x0 timerisr.o
- .data          0x00000000002005ec        0x0 timersetup.o
- .data          0x00000000002005ec        0x0 isrsupport.o
- .data          0x00000000002005ec        0x0 lowlevelinit.o
-                0x00000000002005ec                _edata = .
+ .data          0x000000000020067c        0x0 crt.o
+ .data          0x000000000020067c        0x0 main.o
+ .data          0x000000000020067c        0x0 timerisr.o
+ .data          0x000000000020067c        0x0 timersetup.o
+ .data          0x000000000020067c        0x0 isrsupport.o
+ .data          0x000000000020067c        0x0 lowlevelinit.o
+ .data          0x000000000020067c        0x0 pwm.o
+                0x000000000020067c                _edata = .
 
-.igot.plt       0x00000000002005ec        0x0
+.igot.plt       0x000000000020067c        0x0
  .igot.plt      0x0000000000000000        0x0 crt.o
 
-.bss            0x00000000002005ec        0x0
-                0x00000000002005ec                _bss_start = .
+.bss            0x000000000020067c        0x0
+                0x000000000020067c                _bss_start = .
  *(.bss)
- .bss           0x00000000002005ec        0x0 crt.o
- .bss           0x00000000002005ec        0x0 main.o
- .bss           0x00000000002005ec        0x0 timerisr.o
- .bss           0x00000000002005ec        0x0 timersetup.o
- .bss           0x00000000002005ec        0x0 isrsupport.o
- .bss           0x00000000002005ec        0x0 lowlevelinit.o
-                0x00000000002005ec                . = ALIGN (0x4)
-                0x00000000002005ec                _bss_end = .
-                0x00000000002005ec                _end = .
+ .bss           0x000000000020067c        0x0 crt.o
+ .bss           0x000000000020067c        0x0 main.o
+ .bss           0x000000000020067c        0x0 timerisr.o
+ .bss           0x000000000020067c        0x0 timersetup.o
+ .bss           0x000000000020067c        0x0 isrsupport.o
+ .bss           0x000000000020067c        0x0 lowlevelinit.o
+ .bss           0x000000000020067c        0x0 pwm.o
+                0x000000000020067c                . = ALIGN (0x4)
+                0x000000000020067c                _bss_end = .
+                0x000000000020067c                _end = .
 LOAD crt.o
 LOAD main.o
 LOAD timerisr.o
 LOAD timersetup.o
 LOAD isrsupport.o
 LOAD lowlevelinit.o
+LOAD pwm.o
 LOAD libgcc.a
 OUTPUT(main.out elf32-littlearm)
 
@@ -110,6 +116,8 @@ OUTPUT(main.out elf32-littlearm)
                 0x00000000000000a6       0x30 isrsupport.o
  .ARM.attributes
                 0x00000000000000d6       0x30 lowlevelinit.o
+ .ARM.attributes
+                0x0000000000000106       0x30 pwm.o
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 main.o
@@ -118,29 +126,33 @@ OUTPUT(main.out elf32-littlearm)
  .comment       0x0000000000000000       0x12 timersetup.o
  .comment       0x0000000000000000       0x12 isrsupport.o
  .comment       0x0000000000000000       0x12 lowlevelinit.o
+ .comment       0x0000000000000000       0x12 pwm.o
 
-.debug_info     0x0000000000000000     0x1292
- .debug_info    0x0000000000000000      0x62c main.o
- .debug_info    0x000000000000062c      0x3db timerisr.o
- .debug_info    0x0000000000000a07      0x218 timersetup.o
- .debug_info    0x0000000000000c1f      0x1ae isrsupport.o
- .debug_info    0x0000000000000dcd      0x4c5 lowlevelinit.o
+.debug_info     0x0000000000000000     0x15d0
+ .debug_info    0x0000000000000000      0x2f7 main.o
+ .debug_info    0x00000000000002f7      0x3db timerisr.o
+ .debug_info    0x00000000000006d2      0x218 timersetup.o
+ .debug_info    0x00000000000008ea      0x1ae isrsupport.o
+ .debug_info    0x0000000000000a98      0x4c5 lowlevelinit.o
+ .debug_info    0x0000000000000f5d      0x673 pwm.o
 
-.debug_abbrev   0x0000000000000000      0x3e2
- .debug_abbrev  0x0000000000000000       0xdc main.o
- .debug_abbrev  0x00000000000000dc       0xb1 timerisr.o
- .debug_abbrev  0x000000000000018d       0xaf timersetup.o
- .debug_abbrev  0x000000000000023c       0xb4 isrsupport.o
- .debug_abbrev  0x00000000000002f0       0xf2 lowlevelinit.o
+.debug_abbrev   0x0000000000000000      0x49c
+ .debug_abbrev  0x0000000000000000       0xbe main.o
+ .debug_abbrev  0x00000000000000be       0xb1 timerisr.o
+ .debug_abbrev  0x000000000000016f       0xaf timersetup.o
+ .debug_abbrev  0x000000000000021e       0xb4 isrsupport.o
+ .debug_abbrev  0x00000000000002d2       0xf2 lowlevelinit.o
+ .debug_abbrev  0x00000000000003c4       0xd8 pwm.o
 
-.debug_loc      0x0000000000000000      0x294
+.debug_loc      0x0000000000000000      0x2ec
  .debug_loc     0x0000000000000000       0x2c main.o
  .debug_loc     0x000000000000002c       0x2c timerisr.o
  .debug_loc     0x0000000000000058       0x2c timersetup.o
  .debug_loc     0x0000000000000084      0x160 isrsupport.o
  .debug_loc     0x00000000000001e4       0xb0 lowlevelinit.o
+ .debug_loc     0x0000000000000294       0x58 pwm.o
 
-.debug_aranges  0x0000000000000000       0xa0
+.debug_aranges  0x0000000000000000       0xc0
  .debug_aranges
                 0x0000000000000000       0x20 main.o
  .debug_aranges
@@ -151,29 +163,35 @@ OUTPUT(main.out elf32-littlearm)
                 0x0000000000000060       0x20 isrsupport.o
  .debug_aranges
                 0x0000000000000080       0x20 lowlevelinit.o
+ .debug_aranges
+                0x00000000000000a0       0x20 pwm.o
 
-.debug_line     0x0000000000000000      0x216
- .debug_line    0x0000000000000000       0x69 main.o
- .debug_line    0x0000000000000069       0x53 timerisr.o
- .debug_line    0x00000000000000bc       0x67 timersetup.o
- .debug_line    0x0000000000000123       0x60 isrsupport.o
- .debug_line    0x0000000000000183       0x93 lowlevelinit.o
+.debug_line     0x0000000000000000      0x268
+ .debug_line    0x0000000000000000       0x5f main.o
+ .debug_line    0x000000000000005f       0x53 timerisr.o
+ .debug_line    0x00000000000000b2       0x67 timersetup.o
+ .debug_line    0x0000000000000119       0x60 isrsupport.o
+ .debug_line    0x0000000000000179       0x93 lowlevelinit.o
+ .debug_line    0x000000000000020c       0x5c pwm.o
 
-.debug_str      0x0000000000000000      0x53b
- .debug_str     0x0000000000000000      0x31b main.o
-                                        0x328 (size before relaxing)
- .debug_str     0x000000000000031b       0x77 timerisr.o
-                                        0x230 (size before relaxing)
- .debug_str     0x0000000000000392       0x5b timersetup.o
-                                        0x13d (size before relaxing)
- .debug_str     0x00000000000003ed       0x72 isrsupport.o
-                                         0xde (size before relaxing)
- .debug_str     0x000000000000045f       0xdc lowlevelinit.o
-                                        0x2c0 (size before relaxing)
+.debug_str      0x0000000000000000      0x628
+ .debug_str     0x0000000000000000      0x1b2 main.o
+                                        0x1bf (size before relaxing)
+ .debug_str     0x00000000000001b2       0x77 timerisr.o
+                                        0x22a (size before relaxing)
+ .debug_str     0x0000000000000229       0x5b timersetup.o
+                                        0x137 (size before relaxing)
+ .debug_str     0x0000000000000284       0x84 isrsupport.o
+                                         0xd8 (size before relaxing)
+ .debug_str     0x0000000000000308      0x228 lowlevelinit.o
+                                        0x2ba (size before relaxing)
+ .debug_str     0x0000000000000530       0xf8 pwm.o
+                                        0x35d (size before relaxing)
 
-.debug_frame    0x0000000000000000      0x1d8
+.debug_frame    0x0000000000000000      0x218
  .debug_frame   0x0000000000000000       0x2c main.o
  .debug_frame   0x000000000000002c       0x28 timerisr.o
  .debug_frame   0x0000000000000054       0x28 timersetup.o
  .debug_frame   0x000000000000007c       0xec isrsupport.o
  .debug_frame   0x0000000000000168       0x70 lowlevelinit.o
+ .debug_frame   0x00000000000001d8       0x40 pwm.o

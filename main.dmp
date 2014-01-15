@@ -7,30 +7,30 @@ start address 0x00200000
 
 Program Header:
     LOAD off    0x00008000 vaddr 0x00200000 paddr 0x00200000 align 2**15
-         filesz 0x000005ec memsz 0x000005ec flags r-x
+         filesz 0x0000067c memsz 0x0000067c flags r-x
 private flags = 5000002: [Version5 EABI] [has entry point]
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000005ec  00200000  00200000  00008000  2**2
+  0 .text         0000067c  00200000  00200000  00008000  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .ARM.attributes 0000002b  00000000  00000000  000085ec  2**0
+  1 .ARM.attributes 0000002b  00000000  00000000  0000867c  2**0
                   CONTENTS, READONLY
-  2 .comment      00000011  00000000  00000000  00008617  2**0
+  2 .comment      00000011  00000000  00000000  000086a7  2**0
                   CONTENTS, READONLY
-  3 .debug_info   00001292  00000000  00000000  00008628  2**0
+  3 .debug_info   000015d0  00000000  00000000  000086b8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 000003e2  00000000  00000000  000098ba  2**0
+  4 .debug_abbrev 0000049c  00000000  00000000  00009c88  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_loc    00000294  00000000  00000000  00009c9c  2**0
+  5 .debug_loc    000002ec  00000000  00000000  0000a124  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_aranges 000000a0  00000000  00000000  00009f30  2**0
+  6 .debug_aranges 000000c0  00000000  00000000  0000a410  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000216  00000000  00000000  00009fd0  2**0
+  7 .debug_line   00000268  00000000  00000000  0000a4d0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    0000053b  00000000  00000000  0000a1e6  2**0
+  8 .debug_str    00000628  00000000  00000000  0000a738  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000001d8  00000000  00000000  0000a724  2**2
+  9 .debug_frame  00000218  00000000  00000000  0000ad60  2**2
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00200000 l    d  .text	00000000 .text
@@ -70,38 +70,41 @@ fffff104 l       *ABS*	00000000 AT91C_AIC_FVR
 00000000 l    df *ABS*	00000000 timerisr.c
 00000000 l    df *ABS*	00000000 timersetup.c
 00000000 l    df *ABS*	00000000 isrsupport.c
-0020030c l     F .text	00000028 __get_cpsr
-00200334 l     F .text	00000024 __set_cpsr
+00200298 l     F .text	00000028 __get_cpsr
+002002c0 l     F .text	00000024 __set_cpsr
 00000000 l    df *ABS*	00000000 lowlevelinit.c
+00000000 l    df *ABS*	00000000 pwm.c
 00000000 l    df *ABS*	00000000 
-002005ec g       .text	00000000 _etext
+00200578 g     F .text	000000bc PWM3_init
+0020067c g       .text	00000000 _etext
 00200004 g       .text	00000000 _vec_undef
-00200284 g     F .text	00000088 TimerSetup
-00200390 g     F .text	00000048 restoreIRQ
-00200490 g     F .text	00000038 enableFIQ
-002005ec g       .text	00000000 _bss_start
+00200210 g     F .text	00000088 TimerSetup
+0020031c g     F .text	00000048 restoreIRQ
+0020041c g     F .text	00000038 enableFIQ
+0020067c g       .text	00000000 _bss_start
 0020000c g       .text	00000000 _vec_pabt
-002004c8 g     F .text	0000000c AT91F_Default_FIQ_handler
+00200454 g     F .text	0000000c AT91F_Default_FIQ_handler
 002000a0 g       .text	00000000 AT91F_Irq_Handler
-002005ec g       .text	00000000 _bss_end
+0020067c g       .text	00000000 _bss_end
 00200018 g       .text	00000000 _vec_irq
-002004d4 g     F .text	0000000c AT91F_Default_IRQ_handler
-00200410 g     F .text	00000038 disableFIQ
+00200460 g     F .text	0000000c AT91F_Default_IRQ_handler
+0020039c g     F .text	00000038 disableFIQ
 00200014 g       .text	00000000 _vec_rsv
-00200218 g     F .text	0000006c Timer0IrqHandler
+002001a4 g     F .text	0000006c Timer0IrqHandler
 00200008 g       .text	00000000 _vec_swi
-00200104 g     F .text	00000114 main
+00200104 g     F .text	000000a0 main
 0020fffc g       *ABS*	00000000 _stack_end
 00200010 g       .text	00000000 _vec_dabt
-002005ec g       .text	00000000 _data
-002003d8 g     F .text	00000038 enableIRQ
-002004e0 g     F .text	0000000c AT91F_Spurious_handler
-00200448 g     F .text	00000048 restoreFIQ
-002004ec g     F .text	00000100 LowLevelInit
-002005ec g       .text	00000000 _edata
-002005ec g       .text	00000000 _end
+0020067c g       .text	00000000 _data
+00200364 g     F .text	00000038 enableIRQ
+0020046c g     F .text	0000000c AT91F_Spurious_handler
+002003d4 g     F .text	00000048 restoreFIQ
+00200478 g     F .text	00000100 LowLevelInit
+0020067c g       .text	00000000 _edata
+0020067c g       .text	00000000 _end
 00200000 g       .text	00000000 _vec_reset
 0020001c g       .text	00000000 _vec_fiq
-00200358 g     F .text	00000038 disableIRQ
+002002e4 g     F .text	00000038 disableIRQ
+00200634 g     F .text	00000048 PWM3_dutyset
 
 

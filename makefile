@@ -5,7 +5,7 @@
 # * James P Lynch  May 12, 2007                                 *
 # ***************************************************************
 
-NAME   = at91sam7_blink
+NAME   = at91sam7_pwm
 
 # variables 
 CC      = /Users/gshwang/yagarto/yagarto-4.7.2/bin/arm-none-eabi-gcc
@@ -25,7 +25,7 @@ LFLAGS  =  -Map main.map -T linker_script_ram.lds
 CPFLAGS = --output-target=binary
 ODFLAGS	= -x --syms
 
-OBJECTS = crt.o	main.o timerisr.o timersetup.o isrsupport.o lowlevelinit.o
+OBJECTS = crt.o	main.o timerisr.o timersetup.o isrsupport.o lowlevelinit.o pwm.o
 
 
 # make target called by Eclipse (Project -> Clean ...)
@@ -66,4 +66,8 @@ timersetup.o: timersetup.c
 isrsupport.o: isrsupport.c
 	@ echo ".compiling"
 	$(CC) $(CFLAGS) isrsupport.c
+	
+pwm.o: pwm.c
+	@ echo ".comiling"
+	$(CC) $(CFLAGS) pwm.c
 	

@@ -12,13 +12,13 @@
 
 //PWM 허용레지스터
 #define PWMC 10
-#define PWM3 14 //PA14
+#define PWM1 12 //PA12
 
 //PWM_MR
-#define PREA 8;
-#define PREB 24;
-#define DIVA 0;
-#define DIVB 16;
+#define PREA 8
+#define PREB 24
+#define DIVA 0
+#define DIVB 16
 
 //PWM_CMRx(PWM3)
 #define CPRE 0 //분주비
@@ -30,6 +30,8 @@
 #define CDTY 0
 #define CPRD 0
 #define CHID 3
+
+#define LED (1 << 20)
 
 void PWM3_init(void);
 void PWM3_duty(unsigned uiDuty);
